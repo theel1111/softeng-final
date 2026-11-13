@@ -4,14 +4,11 @@ Software Engineering (UPC) final project: a console-based spreadsheet.
 
 ## Deliverable 1: Analysis
 
-Due Mon 16 Nov 22:57 on Atenea.
+### Domain model
 
-- [ ] Use cases (text)
-- [ ] Use case diagram
-- [x] Domain model diagram: [`domainModel.drawio.png`](domainModel.drawio.png) (source: `Deliverable1.drawio`)
+![Domain model](domainModel.drawio.png)
 
-### Domain Model 
-[`/domainModel.drawio.png`](domainModel.drawio.png) (source: `Deliverable1.drawio`)
+Source: [`Deliverable1.drawio`](Deliverable1.drawio)
 
 ### Use cases
 
@@ -26,5 +23,10 @@ Actor: **User**
 | UC5 | Load spreadsheet from S2V file | Error flow: file not found / invalid S2V |
 | UC6 | Exit program | |
 
+Full descriptions (preconditions, main flows, error flows, postconditions): [`use-cases.md`](use-cases.md)
 
-**
+### Use case diagram
+
+![Use case diagram](useCaseDiagram.drawio.png)
+
+Source: [`useCaseDiagram.drawio`](useCaseDiagram.drawio)
