@@ -6,9 +6,9 @@ Software Engineering (UPC) final project: a console-based spreadsheet.
 
 ### Domain model
 
-![Domain model](domainModel.drawio.png)
+![Domain model](docs/domainModel.drawio.png)
 
-Source: [`Deliverable1.drawio`](Deliverable1.drawio)
+Source: [`Deliverable1.drawio`](docs/Deliverable1.drawio)
 
 ### Use cases
 
@@ -27,6 +27,6 @@ Full descriptions (preconditions, main flows, error flows, postconditions): [`us
 
 ### Use case diagram
 
-![Use case diagram](useCaseDiagram.drawio.png)
+![Use case diagram](docs/useCaseDiagram.drawio.png)
 
-Source: [`useCaseDiagram.drawio`](useCaseDiagram.drawio)
+Source: [`useCaseDiagram.drawio`](docs/useCaseDiagram.drawio)
