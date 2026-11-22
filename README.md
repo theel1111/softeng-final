@@ -42,9 +42,11 @@ src/
 ├── spreadsheet/
 │   ├── Spreadsheet, Cell, Coordinate
 │   ├── content/        Content, NumericalContent, TextContent, FormulaContent
-│   └── formula/        Operand, Argument, Operator, Range
-│       ├── operands/   NumericValue, CellReference, Function
-│       └── functions/  Suma, Min, Max, Promedio
+│   ├── formula/        Operand, Argument, Operator, Range
+│   │   ├── operands/   NumericValue, CellReference, Function
+│   │   └── functions/  Suma, Min, Max, Promedio
+│   └── io/             S2VStorage
+├── ui/                 ConsoleMenu (text menu)
 ├── example/            professor's expression-parser example (used from step 5)
 test/
 └── spreadsheet/        unit tests, same packages as src/
@@ -71,6 +73,32 @@ Stores numbers, text and formulas in cells, without calculating anything.
 
 **Tests:** `test/spreadsheet/SpreadsheetTest.java` (coordinates, content types, setting and viewing content).
 
-### How to run the tests
+### Step 2: load and save spreadsheets (S2V) ✅
 
-In IntelliJ: right-click `test` → **Run 'All Tests'**. See [`docs/testing-sop.md`](docs/testing-sop.md) for how tests are written in this project.
+Reads and writes spreadsheets in S2V format, and adds a text menu to set and view cell content.
+
+| Class | Responsibility |
+|---|---|
+| `S2VStorage` | `save(sheet, path)` and `load(path)`. One line per row, cells separated by `;`, empty cells left empty, each row ending at its last non-empty cell. Inside formulas, the `;` between function arguments is stored as `,` and converted back on load |
+| `ConsoleMenu` | Text menu for the use cases: create, edit cell, show, save, load, exit. Shows cell **content** (e.g. `=A1+B1`), not values |
+
+Example: the PDF's sample spreadsheet saves as
+
+```
+=C1+C2;4;1
+;;2
+;TOTAL;=A1+B1
+```
+
+**Design notes**
+- `ConsoleMenu` only talks to the user; the logic is in `Spreadsheet` and `S2VStorage`, so the console could be replaced by a GUI without touching them (a requirement in the PDF).
+- Load builds a new `Spreadsheet` and only replaces the current one if reading succeeds.
+
+**Tests:** `test/spreadsheet/io/S2VStorageTest.java` (saving the PDF example, the `;` ↔ `,` conversion, save → load gives back the same contents).
+
+### How to run
+
+- Tests: right-click `test` → **Run 'All Tests'**.
+- The program: run `ui/ConsoleMenu` (green ▶ next to `main`).
+
+See [`docs/testing-sop.md`](docs/testing-sop.md) for how tests are written in this project.
