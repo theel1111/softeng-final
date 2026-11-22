@@ -6,9 +6,9 @@ Software Engineering (UPC) final project: a console-based spreadsheet.
 
 ### Domain model
 
-![Domain model](docs/domainModel.drawio.png)
+![Domain model](docs/domainModel.png)
 
-Source: [`Deliverable1.drawio`](docs/Deliverable1.drawio)
+Source: [`domainModel.drawio`](docs/domainModel.drawio)
 
 ### Use cases
 
@@ -27,7 +27,7 @@ Full descriptions (preconditions, main flows, error flows, postconditions): [`do
 
 ### Use case diagram
 
-![Use case diagram](docs/useCaseDiagram.drawio.png)
+![Use case diagram](docs/useCaseDiagram.png)
 
 Source: [`useCaseDiagram.drawio`](docs/useCaseDiagram.drawio)
 
@@ -102,3 +102,30 @@ Example: the PDF's sample spreadsheet saves as
 - The program: run `ui/ConsoleMenu` (green ▶ next to `main`).
 
 See [`docs/testing-sop.md`](docs/testing-sop.md) for how tests are written in this project.
+
+## Final delivery: remaining steps
+
+Source code due **Wed 16 Dec 23:57** on Atenea. Planned in two parts, all worked on during the Wednesday SOFTENG classes.
+
+### Part A: the spreadsheet calculates
+
+- [ ] **Step 3**: Formula evaluation: build formulas as a tree of nodes (numbers, `+ - * /`) and compute their value
+- [ ] **Step 4**: Unit tests with hand-built formulas (`1+2`, `3*5+4`, …)
+- [ ] **Step 5**: Integrate the professor's expression parser (`lib/expression-factory.jar`) through our own `Factory`. Cell references don't work yet
+- [ ] **Step 6**: Cell references: `A1` uses the value in cell A1; when a cell changes, recompute only the cells that depend on it, in order
+- [ ] **Step 7**: Detect circular dependencies (e.g. `A1 = A2+A3`, `A2 = A1*2`) and refuse them with an error
+
+### Part B: functions, ranges, own parser, delivery
+
+- [ ] **Step 8**: Functions `SUMA`, `MIN`, `MAX`, `PROMEDIO` with single values and cells (no ranges yet)
+- [ ] **Step 9**: Ranges (`A1:B3`) as function arguments
+- [ ] **Step 10**: Replace the professor's parser with our own Shunting Yard implementation (required: keeping the provided parser costs marks)
+- [ ] Menu commands in the syntax the professor imposes
+- [ ] Final README, tag `final`, submit on Atenea
+
+| Session | Date | Plan |
+|---|---|---|
+| 1 | Wed 25 Nov, 9:00–11:00 | Steps 3–5 |
+| 2 | Wed 2 Dec, 9:00–11:00 | Steps 6–7 → Part A done |
+| 3 | Wed 9 Dec, 9:00–11:00 | Steps 8–10 |
+| 4 | Wed 16 Dec, 9:00–11:00 | Menu syntax, final README, tag `final`, submit (deadline 23:57 that day) |
